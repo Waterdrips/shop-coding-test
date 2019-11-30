@@ -5,6 +5,13 @@ from offers.offer import Offer
 
 
 class Basket:
+    """
+    Class to manage a user's basket.
+    We pass in a shopping list, and the products & offers available.
+
+    This class then handles fetching matching products, offers and calculating pricing
+    """
+
     def __init__(
         self, shopping_list: List[str], offers: List[Offer], products: Dict[str, type]
     ):

@@ -35,4 +35,9 @@ def main(input_items: list) -> None:
 if __name__ == "__main__":
     # first element is the called filename - so we exclude it,
     inputs = sys.argv[1:]
-    main(inputs)
+
+    if "--check-shelves" in inputs:
+        print(list(current_products.keys()))
+
+    else:
+        main(inputs)
