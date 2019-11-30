@@ -1,5 +1,3 @@
-from dataclasses import dataclass
-
 from goods.shop_item import ShopItem
 
 

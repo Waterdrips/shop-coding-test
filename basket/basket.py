@@ -36,6 +36,9 @@ class Basket:
         return items, rejected_items
 
     def calculate_discounts(self) -> Tuple[int, Optional[List]]:
+        """
+        Go through the discounts, apply them to the basket, and group the messages and discount price
+        """
         discount = 0
         discount_messages = []
         for offer in self.offers:

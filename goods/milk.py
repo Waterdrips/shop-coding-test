@@ -1,13 +1,10 @@
-from dataclasses import dataclass
-
 from goods.shop_item import ShopItem
 
 
-@dataclass
 class Milk(ShopItem):
     """
     Milk Shop Item, it has a default price set in here, but can be overridden in other areas of the program if required
     """
 
-    name: str = "milk"
-    pence_price: int = 130
+    def __init__(self):
+        super().__init__("Milk", 130)
