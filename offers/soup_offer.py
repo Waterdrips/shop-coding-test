@@ -20,8 +20,9 @@ class SoupOffer(Offer):
         bread_discount_max_quantity = int(soup_quantity / 2).__floor__()
         bread_quantity = self.count_item_in_basket(basket, Bread)
 
-        # Get the minimum of bread, or the number of bread we could apply discount on
+        # Get the number of bread we could apply discount on
         discount_quantity = min(bread_quantity, bread_discount_max_quantity)
+
         bread_offer = PercentageOffer(
             "Bread Offer if you buy Soup", Bread, 50, discount_quantity
         )
