@@ -1,11 +1,33 @@
 # To run the application
 ## Required programs
-* Python 3.7+
 
-## Commands
-First find out if python2 or python3 is the default on your system
+* Docker (Recommended)
+* Python 3.7+ (If not using Docker)
 
-if the output of `python --version` isnt python3, then try using python3 in place of python in the docs
+
+## Setup with docker
+Some users wont want to install virtual python environments etc, so there's a way to use & develop this program with docker
+
+Run an interactive container to run the program, and tests etc.
+
+`docker run --rm -it -v $PWD:/app $(docker build -q .) /bin/sh`
+
+Then use this interactive shell to execute the program:
+
+`python main.py Apples Soup Soup Bread Apples Milk` for example
+
+#### To run the tests
+Run the tests (and gather coverage data) with `coverage run -m unittest`
+
+You view the coverage report with `coverage report --omit="*/test*"`
+
+
+## If not using docker
+
+* Install a python 3.7+ virtual environment (not covered by this doc)
+* Activate the virtual environment
+* Install dev dependencies (for running tests and coverage) `pip install -r requirements.txt`
+* To run the tests and coverage `coverage run -m unittest` and then `coverage report --omit="*/test*"`
 
 To run the command use
 
@@ -13,12 +35,9 @@ To run the command use
 
 and you should see the output.
 
-
-## To develop
-
+## Developing
 To add a new product, go to the folder called `goods` this contains the definitions of the shop items, create a new one of these (see an existing one for format)
-
-###### To run the program with extra log output, pass the `--debug` flag as an argument to the program
 
 # Future work
 * Handle inputs that are comma and/or space delimited.
+* More default discounts "types" like BOGOF
