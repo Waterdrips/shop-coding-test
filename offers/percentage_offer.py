@@ -1,8 +1,13 @@
+import logging
 from typing import List, Tuple, Optional
 
 from formating import format_currency
 from goods.shop_item import ShopItem
 from offers.offer import Offer
+
+logging.basicConfig()
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 
 
 class PercentageOffer(Offer):
@@ -27,12 +32,17 @@ class PercentageOffer(Offer):
         Take a list of items, and return a discount that based on specified percentage and max quantity of items
         """
         if self.max_items == 0:
+            logger.debug("Offer has max quantity of 0, so not processing")
             return None, 0
 
         quantity = self.count_item_in_basket(basket, self.discount_item_type)
 
         # If we have been given a max number of items to apply this to, then see if we have more than that in the bag
         if self.max_items and quantity > self.max_items:
+            logger.debug(
+                f"more {self.discount_item_type} in the basket than we are allowed to giive discount for, "
+                f"only discounting some"
+            )
             quantity = self.max_items
 
         # if our discount is partial pence, then we round down - profit
@@ -41,6 +51,9 @@ class PercentageOffer(Offer):
         ).__floor__()
 
         discount_total = quantity * discount_each
+        logger.debug(
+            f"discount for {self.name}: {discount_total}, for {quantity} products"
+        )
 
         message = (
             f"{self.discount_item_type().name} {self.percentage}% off: -{format_currency(discount_total)}"
