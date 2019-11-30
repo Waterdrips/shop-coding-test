@@ -3,6 +3,9 @@ This program is used to calculate a user's spend in a shop based on a list of pr
 
 It will not consider any list items which are not matches to the products we support.
 
+A user who wants to know what products are available can run the command `python main.py --check-shelves` to see a list
+of products available to put in their shopping list
+
 
 > This CLI is not guaranteed to work on windows as the author has not explicitly tested on this platform. This should
 not cause any users a problem, as the recommended way to use this application and develop for it is by using Docker
@@ -60,3 +63,4 @@ Tests are found in the `./test` folder
 * Break some of the maths bits (percentage discount for example) out into their own package, so more extensive testing can be done on those sections and we can encourage code-reuse in the future
 * Discuss with Product Owner/Business as to how and where we apply rounding of prices, at the moment its setup to maximise profit
 * The products could be refactored out of code and into config (or external provider) by changing from using Python types to work out what's in the basket to looking at names (if we created objects from a base product class instead of creating child classes)
+* Decide if we should validate if a developer creates a discount that is more than 100% or less then (or equal to) 0%
