@@ -22,6 +22,12 @@ def main(input_items: list) -> None:
     """
     basket = Basket(input_items, offers, current_products)
 
+    # We are going to print a list of products we were unable to match from the list
+    if len(basket.rejected_items) > 0:
+        print(
+            f"We were unable to match these items to products: {', '.join(basket.rejected_items)}"
+        )
+
     print(f"Subtotal: {format_currency(basket.full_price)}")
 
     if len(basket.discount_messages) == 0:

@@ -20,6 +20,8 @@ not cause any users a problem, as the recommended way to use this application an
 ## Setup with docker
 Some users wont want to install virtual python environments etc, so there's a way to use & develop this program with docker
 
+Pre pull the base container, to speed up the next step `docker pull python:3.7.4-alpine`
+
 Run an interactive container to run the program, and tests etc.
 
 `docker run --rm -it -v $PWD:/app $(docker build -q .) /bin/sh`
