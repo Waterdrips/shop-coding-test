@@ -44,6 +44,5 @@ if __name__ == "__main__":
 
     if "--check-shelves" in inputs:
         print(list(current_products.keys()))
-
     else:
         main(inputs)

@@ -20,7 +20,7 @@ not cause any users a problem, as the recommended way to use this application an
 ## Setup with docker
 Some users wont want to install virtual python environments etc, so there's a way to use & develop this program with docker
 
-Pre pull the base container, to speed up the next step `docker pull python:3.7.4-alpine`
+Pre pull the base container, to speed up the next step `docker pull python:3.7.4-alpine`. (otherwise it can look like the next command is hanging)
 
 Run an interactive container to run the program, and tests etc.
 
@@ -33,7 +33,7 @@ Then use this interactive shell to execute the program:
 #### To run the tests
 Run the tests (and gather coverage data) with `coverage run -m unittest`
 
-You view the coverage report with `coverage report --omit="*/test*"`
+You view the coverage report with `coverage report -m`
 
 
 ## If not using docker (NOT SUPPORTED)
@@ -41,7 +41,7 @@ You view the coverage report with `coverage report --omit="*/test*"`
 * Install a python 3.7+ virtual environment 
 * Activate the virtual environment
 * Install dev dependencies (for running tests and coverage) `pip install -r requirements.txt`
-* To run the tests and coverage `coverage run -m unittest` and then `coverage report --omit="*/test*"`
+* To run the tests and coverage `coverage run -m unittest` and then `coverage report -m`
 
 To run the CLI use
 
