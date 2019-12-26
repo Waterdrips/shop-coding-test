@@ -35,7 +35,6 @@ Run the tests (and gather coverage data) with `coverage run -m unittest`
 
 You view the coverage report with `coverage report -m`
 
-
 ## If not using docker (NOT SUPPORTED)
 
 * Install a python 3.7+ virtual environment 
